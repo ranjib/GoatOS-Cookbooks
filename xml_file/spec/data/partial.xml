@@ -1,0 +1,4 @@
+<exec command="/opt/rubies/ruby-2.1.4/bin/bundle">
+  <arg>install</arg>
+  <runif status="passed" />
+</exec>

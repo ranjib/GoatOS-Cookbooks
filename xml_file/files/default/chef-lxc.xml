@@ -1,0 +1,21 @@
+<pipeline name="ChefLXC">
+  <environmentvariables>
+  </environmentvariables>
+  <materials>
+    <git url="https://github.com/ranjib/chef-lxc.git" />
+  </materials>
+  <stage name="Test">
+    <jobs>
+      <job name="Spec">
+        <tasks>
+          <exec command="/opt/rubies/ruby-2.1.4/bin/bundle">
+            <arg>exec</arg>
+            <arg>rake</arg>
+            <arg>spec</arg>
+            <runif status="passed" />
+          </exec>
+        </tasks>
+      </job>
+    </jobs>
+  </stage>
+</pipeline>

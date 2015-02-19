@@ -1,0 +1,68 @@
+<pipelines group="GoatOS">
+  <pipeline name="Chef">
+    <environmentvariables>
+      <variable name="GEM_HOME">
+        <value>/opt/rubies/ruby-2.1.4/lib/ruby/gems/2.1.0</value>
+      </variable>
+      <variable name="GEM_PATH">
+        <value>/opt/rubies/ruby-2.1.4/lib/ruby/gems/2.1.0</value>
+      </variable>
+      <variable name="PATH">
+        <value>/opt/rubies/ruby-2.1.4/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin</value>
+      </variable>
+    </environmentvariables>
+    <materials>
+      <git url="https://github.com/opscode/chef.git" />
+    </materials>
+    <stage name="Test">
+      <jobs>
+        <job name="Spec">
+          <tasks>
+            <exec command="/opt/rubies/ruby-2.1.4/bin/bundle">
+              <arg>install</arg>
+            </exec>
+            <exec command="/opt/rubies/ruby-2.1.4/bin/bundle">
+              <arg>exec</arg>
+              <arg>rake</arg>
+              <arg>spec:all</arg>
+              <runif status="passed" />
+            </exec>
+          </tasks>
+        </job>
+      </jobs>
+    </stage>
+  </pipeline>
+  <pipeline name="GoiardiFunc">
+    <environmentvariables>
+      <variable name="GEM_HOME">
+        <value>/opt/rubies/ruby-2.1.4/lib/ruby/gems/2.1.0</value>
+      </variable>
+      <variable name="GEM_PATH">
+        <value>/opt/rubies/ruby-2.1.4/lib/ruby/gems/2.1.0</value>
+      </variable>
+      <variable name="PATH">
+        <value>/opt/rubies/ruby-2.1.4/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin</value>
+      </variable>
+    </environmentvariables>
+    <materials>
+      <git url="https://github.com/go-chef/Functional-Test-Suite.rb.git" />
+    </materials>
+    <stage name="Test">
+      <jobs>
+        <job name="Spec">
+          <tasks>
+            <exec command="/opt/rubies/ruby-2.1.4/bin/bundle">
+              <arg>install</arg>
+            </exec>
+            <exec command="/opt/rubies/ruby-2.1.4/bin/bundle">
+              <arg>exec</arg>
+              <arg>rake</arg>
+              <arg>spec</arg>
+              <runif status="passed" />
+            </exec>
+          </tasks>
+        </job>
+      </jobs>
+    </stage>
+  </pipeline>
+</pipelines>

@@ -1,0 +1,6 @@
+name 'xml_file'
+version '0.0.1'
+maintainer 'Ranjib Dey'
+maintainer_email 'ranjib@linux.com'
+license 'Apache 2.0'
+description 'Provides xml_file resource-provider'
